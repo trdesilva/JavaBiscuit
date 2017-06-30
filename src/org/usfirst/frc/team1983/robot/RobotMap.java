@@ -23,6 +23,7 @@ public class RobotMap
         public static final int LEFT_1 = 3;
         public static final int LEFT_2 = 4;
         public static final int LEFT_3 = 5;
+        
         public static final int RIGHT_1 = 0;
         public static final int RIGHT_2 = 1;
         public static final int RIGHT_3 = 2;
@@ -34,6 +35,7 @@ public class RobotMap
         public static final int OMNI_2 = 1;
         public static final int OMNI_3 = 2;
         public static final int OMNI_4 = 3;
+        
         public static final int SHIFTER_1 = 6;
         public static final int SHIFTER_2 = 7;
     }
