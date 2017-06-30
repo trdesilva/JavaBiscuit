@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.mockito.Answers;
 import org.mockito.Mock;
 import org.usfirst.frc.team1983.robot.Oi;
+import org.usfirst.frc.team1983.robot.RobotMap;
 import org.usfirst.frc.team1983.robot.subsystems.Drivebase;
 
 import static org.mockito.Matchers.anyInt;
@@ -53,11 +54,12 @@ public class UT_TankDrive
     @Test
     public void executeHasDeadband()
     {
-        when(oi.getJoystick().getRawAxis(anyInt())).thenReturn(0.04);
+        double input = RobotMap.Oi.DRIVEBASE_DEADBAND * .99;
+        when(oi.getJoystick().getRawAxis(anyInt())).thenReturn(input);
         
         tankDrive.execute();
     
-        when(oi.getJoystick().getRawAxis(anyInt())).thenReturn(-0.04);
+        when(oi.getJoystick().getRawAxis(anyInt())).thenReturn(-input);
     
         tankDrive.execute();
     
@@ -68,18 +70,21 @@ public class UT_TankDrive
     @Test
     public void executeSquaresInputsWithCorrectSigns()
     {
-        when(oi.getJoystick().getRawAxis(anyInt())).thenReturn(0.5);
+        double input = 0.5;
+        when(oi.getJoystick().getRawAxis(RobotMap.Oi.DRIVEBASE_LEFT_AXIS)).thenReturn(input);
+        when(oi.getJoystick().getRawAxis(RobotMap.Oi.DRIVEBASE_RIGHT_AXIS)).thenReturn(input);
     
         tankDrive.execute();
     
-        verify(drivebase).setLeftSpeed(0.5*0.5);
-        verify(drivebase).setRightSpeed(0.5*0.5);
+        verify(drivebase).setLeftSpeed(input * input);
+        verify(drivebase).setRightSpeed(input * input);
     
-        when(oi.getJoystick().getRawAxis(anyInt())).thenReturn(-0.5);
+        when(oi.getJoystick().getRawAxis(RobotMap.Oi.DRIVEBASE_LEFT_AXIS)).thenReturn(-input);
+        when(oi.getJoystick().getRawAxis(RobotMap.Oi.DRIVEBASE_RIGHT_AXIS)).thenReturn(-input);
     
         tankDrive.execute();
     
-        verify(drivebase).setLeftSpeed(-0.5*0.5);
-        verify(drivebase).setRightSpeed(-0.5*0.5);
+        verify(drivebase).setLeftSpeed(-input * input);
+        verify(drivebase).setRightSpeed(-input * input);
     }
 }

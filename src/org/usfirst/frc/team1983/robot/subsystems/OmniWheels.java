@@ -13,8 +13,8 @@ public class OmniWheels extends Subsystem
     public OmniWheels(int forwardPort1, int reversePort1, int forwardPort2, int reversePort2)
     {
         isLowered = false;
-        solenoid1 = new DoubleSolenoid(RobotMap.PCM_ID, forwardPort1, reversePort1);
-        solenoid2 = new DoubleSolenoid(RobotMap.PCM_ID, forwardPort2, reversePort2);
+        solenoid1 = new DoubleSolenoid(RobotMap.Modules.PCM_ID, forwardPort1, reversePort1);
+        solenoid2 = new DoubleSolenoid(RobotMap.Modules.PCM_ID, forwardPort2, reversePort2);
     }
     
     public void setLowered(boolean isLowered)

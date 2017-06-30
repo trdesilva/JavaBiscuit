@@ -20,12 +20,12 @@ public class Robot extends IterativeRobot
 {
     private static final Robot INSTANCE = new Robot();
     
-    private final Drivebase DRIVEBASE = new Drivebase(RobotMap.LEFT_PORT_1, RobotMap.LEFT_PORT_2, RobotMap.LEFT_PORT_3,
-                                                      RobotMap.RIGHT_PORT_1, RobotMap.RIGHT_PORT_2, RobotMap.RIGHT_PORT_3);
-    private final Shifter SHIFTER = new Shifter(RobotMap.SHIFTER_PORT_1, RobotMap.SHIFTER_PORT_2);
-    private final OmniWheels OMNI_WHEELS = new OmniWheels(RobotMap.OMNI_PORT_1, RobotMap.OMNI_PORT_2,
-                                                                RobotMap.OMNI_PORT_3, RobotMap.OMNI_PORT_4);
-    private final Compressor COMPRESSOR = new Compressor(RobotMap.PCM_ID);
+    private final Drivebase DRIVEBASE = new Drivebase(RobotMap.MotorPorts.LEFT_1, RobotMap.MotorPorts.LEFT_2, RobotMap.MotorPorts.LEFT_3,
+                                                      RobotMap.MotorPorts.RIGHT_1, RobotMap.MotorPorts.RIGHT_2, RobotMap.MotorPorts.RIGHT_3);
+    private final Shifter SHIFTER = new Shifter(RobotMap.SolenoidPorts.SHIFTER_1, RobotMap.SolenoidPorts.SHIFTER_2);
+    private final OmniWheels OMNI_WHEELS = new OmniWheels(RobotMap.SolenoidPorts.OMNI_1, RobotMap.SolenoidPorts.OMNI_2,
+                                                          RobotMap.SolenoidPorts.OMNI_3, RobotMap.SolenoidPorts.OMNI_4);
+    private final Compressor COMPRESSOR = new Compressor(RobotMap.Modules.PCM_ID);
     private Oi OI;
     
     /**

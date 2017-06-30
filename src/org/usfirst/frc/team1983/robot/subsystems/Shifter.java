@@ -12,7 +12,7 @@ public class Shifter extends Subsystem
     public Shifter(int port1, int port2)
     {
         isShifted = false;
-        solenoid = new DoubleSolenoid(RobotMap.PCM_ID, port1, port2);
+        solenoid = new DoubleSolenoid(RobotMap.Modules.PCM_ID, port1, port2);
     }
     
     public void setShifted(boolean isShifted)

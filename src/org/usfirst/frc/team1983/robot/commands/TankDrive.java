@@ -2,6 +2,7 @@ package org.usfirst.frc.team1983.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1983.robot.Oi;
+import org.usfirst.frc.team1983.robot.RobotMap;
 import org.usfirst.frc.team1983.robot.subsystems.Drivebase;
 
 public class TankDrive extends Command
@@ -25,18 +26,17 @@ public class TankDrive extends Command
     
     protected void execute()
     {
-        double leftSpeed = oi.getJoystick().getRawAxis(1);
+        double leftSpeed = oi.getJoystick().getRawAxis(RobotMap.Oi.DRIVEBASE_LEFT_AXIS);
         drivebase.setLeftSpeed(scaleInput(leftSpeed));
-        
-        double rightSpeed = oi.getJoystick().getRawAxis(5);
+    
+        double rightSpeed = oi.getJoystick().getRawAxis(RobotMap.Oi.DRIVEBASE_RIGHT_AXIS);
         drivebase.setRightSpeed(scaleInput(rightSpeed));
-        
-        System.out.printf("left %f\tright%f\n", leftSpeed, rightSpeed);
+    
+        System.out.printf("left %f\tright %f\n", leftSpeed, rightSpeed);
     }
     
     protected boolean isFinished()
     {
-        // TODO: Make this return true when this Command no longer needs to run execute()
         return false;
     }
     
@@ -53,7 +53,7 @@ public class TankDrive extends Command
     
     private double scaleInput(double input)
     {
-        if(Math.abs(input) > 0.05)
+        if(Math.abs(input) > RobotMap.Oi.DRIVEBASE_DEADBAND)
         {
             if(input > 0)
             {

@@ -11,9 +11,9 @@ import org.usfirst.frc.team1983.robot.commands.Shift;
  */
 public class Oi
 {
-	//// CREATING BUTTONS
-	// One type of button is a joystick button which is any button on a
-	//// joystick.
+    //// CREATING BUTTONS
+    // One type of button is a joystick button which is any button on a
+    //// joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	// Joystick stick = new Joystick(port);
@@ -38,9 +38,9 @@ public class Oi
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-    private Joystick joystick = new Joystick(0);
-    private JoystickButton shiftButton = new JoystickButton(joystick, 6);
-    private JoystickButton omniButton = new JoystickButton(joystick, 5);
+    private Joystick joystick = new Joystick(RobotMap.Oi.JOYSTICK_PORT);
+    private JoystickButton shiftButton = new JoystickButton(joystick, RobotMap.Oi.SHIFT_BUTTON);
+    private JoystickButton omniButton = new JoystickButton(joystick, RobotMap.Oi.OMNI_BUTTON);
     
     public Oi()
     {
